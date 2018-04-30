@@ -28,7 +28,7 @@ app.post('login',function(req,res){
 
 app.get('/',function(req,res){
     console.log(req.session.U_name);
-})
+});
 
 
 
