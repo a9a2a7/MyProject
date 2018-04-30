@@ -3,8 +3,7 @@ var express = require('express'),
 router.use("/people", require("../controllers/people.api"));
 router.use("/user",require("../controllers/user.api"));
  var app = express();
- var session=require('express-session');
- app.use(session({secret:'iLoveuit'}));
+
 
 var User=require("../models/user");
 router.post('/auth',function(req,res){
