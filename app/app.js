@@ -21,6 +21,6 @@
         });
     })
     .constant("globalConfig", {
-    apiAddress: 'http://localhost:8888/api'
+    apiAddress: 'http://localhost:3000/api'
     });
    })();
