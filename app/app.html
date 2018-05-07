@@ -4,7 +4,9 @@
  <meta charset="UTF-8">
  <title></title>
  <link href="lib/css/bootstrap.min.css" rel="stylesheet" />
+ <link href="lib/css/m.css" rel="stylesheet" />
  <script src="lib/angular.js"></script>
+ <script src="lib/angular.min.js"></script>
  <script src="lib/angular-ui-router.js"></script>
 
  
@@ -13,6 +15,7 @@
  <script src="services/user.service.js"></script>
  <script src="controllers/people.controller.js"></script>
  <script src="controllers/user.controller.js"></script>
+ <script src="controllers/p.js"></script>
 </head>
 <body ng-controller="userController">
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -22,7 +25,6 @@
  </div>
  <ul class="nav navbar-nav navbar-inverse" >
  <li><a ui-sref="peoples"><span class="glyphicon glyphicon-home" style="color: springgreen"></span>  Home</a></li>
- <li><a ui-sref="create" ng-hide="uname==null"><span class="glyphicon glyphicon-plus-sign" style="color:aqua"></span>  Create</a></li>
  </ul>
  <ul class="nav navbar-nav navbar-right">
     <li><a ui-sref="login" ng-hide="uname!=null"><span class="glyphicon glyphicon-user" style="color:orangered"></span>  Login</a></li>
@@ -45,7 +47,9 @@
 
  <ui-view></ui-view>
 </div>
-
+<br>
+<br>
+<br>
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
         <div class="container">
           <div class="navbar-header">

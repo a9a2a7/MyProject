@@ -1,6 +1,6 @@
 
 
- 
+ <div>
 <table class="table table-dark table-striped" ng-if="peoples.length>0">
     <thead class="thead-dark">
     <tr>
@@ -18,11 +18,65 @@
     <td>{{people.jop}}</td>
     <td>{{people.location}}</td>
     <td ng-hide="uname==null">
-    <a ui-sref="edit({id:people._id})"  class="btn btn-default">Edit</a>   
+    <a href="#" ng-click="EditPeople(people._id)"  class="btn btn-default">Edit</a>   
     <a href="#" ng-click="deletePeople(people._id)" class="btn btn-danger">Delete</a>
     </td>
     </tr>
    </table>
    <div ng-if="peoples.length==0">
-    There is no data, <a ui-sref="create"  class="btn btn-default">Create</a>
+    There is no data, press create to add
    </div>
+</div>
+<div ng-hide="uname==null">
+<h3>Create and Edit Menu: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br /></h3>
+
+<div ng-init="s=0" ></div>
+
+
+<div class="check-element funky-show-hide" ng-hide="!checked">
+    <h2 ng-show="people._id!=null">Edit</h2>
+    <h2 ng-hide="people._id!=null">Create</h2>
+    
+    <hr>
+
+    
+    <form name="peopleForm" ng-submit="saveData(people)" novalidate class="form-horizontal" >
+     <div class="form-group">
+     <label class="col-md-1">Name :</label>
+     <div class="col-md-4">
+     <input type="text" ng-model="people.name" name="name" placeholder="Enter Name" pattern="[a-zA-Z]+"  ng-required="true" class="form-control"/>
+     <p ng-show="peopleForm.name.$error.required && (peopleForm.$submitted || peopleForm.name.$dirty)" class="text-danger">Please Enter Name</p>
+     <p ng-show="peopleForm.name.$error.pattern" class="text-danger">Enter letters only</p>
+     </div>
+     
+     <label class="col-md-1">Phone :</label>
+     <div class="col-md-4">
+     <input name="phone" placeholder="Enter Phone" ng-model="people.phone" ng-required="true" max="10" pattern="[0-9]+" class="form-control"></>
+     <p ng-show="peopleForm.phone.$error.required && (peopleForm.$submitted || peopleForm.phone.$dirty)" class="text-danger">Please Enter Phone</p>
+     <p ng-show="peopleForm.phone.$error.pattern" class="text-danger">Enter numbers only</p>
+     <p ng-show="peopleForm.phone.$error.max" class="text-danger">Enter 10</p>
+     </div>
+     </div>
+     <div class="form-group">
+     <label class="col-md-1">Jop :</label>
+     <div class="col-md-4">
+     <input type="text" ng-model="people.jop" name="jop" placeholder="Enter Jop" ng-required="true" class="form-control"/>
+     <p ng-show="peopleForm.jop.$error.required && (peopleForm.$submitted || peopleForm.jop.$dirty)" class="text-danger">Please Enter jop</p>
+     </div>
+     
+        <label class="col-md-1">Location :</label>
+        <div class="col-md-4">
+        <input type="text" ng-model="people.location" name="location" placeholder="Enter Location" ng-required="true" class="form-control"/>
+        <p ng-show="peopleForm.location.$error.required && (peopleForm.$submitted || peopleForm.location.$dirty)" class="text-danger">Please Enter location</p>
+        </div>
+        </div>
+     <div class="form-group">
+     <div class="col-md-offset-2 col-md-4">
+     <input type="submit" value="Update" class="btn btn-primary" ng-show="people._id!=null"/>
+     <input type="submit" value="Save" class="btn btn-primary" ng-hide="people._id!=null"/>
+     <a ui-sref="peoples" class="btn btn-danger">Cancel</a>
+     </div>
+     </div>
+    </form>
+</div>
+</div>
