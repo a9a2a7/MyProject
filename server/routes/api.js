@@ -1,7 +1,7 @@
 var express = require('express'),
  router = express.Router();
-router.use("/people", require("../controllers/people.api"));
-router.use("/user",require("../controllers/user.api"));
+router.use("/people", require("../Ctrls/people.api.controller"));
+router.use("/user",require("../Ctrls/user.api.controller"));
  var app = express();
 
 
